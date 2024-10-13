@@ -1,0 +1,65 @@
+@import "vars";
+@import "mixins";
+
+.mainMenu {
+  position: absolute;
+  top: 74px;
+  right: -232px;
+  max-width: 232px;
+  background-color: #FFF;
+  @include fontStyle1(400, 14px);
+  width: 232px;
+  filter: drop-shadow(6px 4px 35px rgba(0, 0, 0, 0.21));
+  padding: 32px 33px 21px 33px;
+  z-index: 5;
+
+  //visibility: hidden;
+  //opacity: 0;
+  transition: visibility 0.3s linear, opacity 0.3s linear;
+
+  h3 {
+    color: #000;
+    font-weight: 700;
+    margin-bottom: 13px;
+    font-size: 14px;
+  }
+
+  &__firstLevel a {
+    color: $exclusiveColor;
+  }
+
+  &__secondLevel a {
+    padding-left: 27px;
+    color: #6F6E6E;
+  }
+
+  ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+
+  li {
+    padding-top: 11px;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  p {
+    padding: 0;
+    margin: 0;
+  }
+
+  //&.active {
+  //  visibility: visible;
+  //  opacity: 1;
+  //}
+}
+
+@media (max-width: $siteWidth) {
+  .mainMenu {
+    right: -41px;
+  }
+}

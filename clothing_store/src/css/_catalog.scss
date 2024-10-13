@@ -1,0 +1,200 @@
+@import "vars";
+@import "mixins";
+
+.catalog {
+  &__sectionFilter {
+    color: #6F6E6E;
+    @include fontStyle1(400, 14px);
+    @include flexCenter();
+    justify-content: space-between;
+
+    height: 132px;
+
+    //summary {
+    //  @include flexCenter();
+    //}
+    //
+    //details {
+    //  position: relative;
+    //}
+  }
+
+  &__sectionFilterLeftSide {
+    color: #6F6E6E;
+    position: relative;
+
+    //summary {
+    //  @include flexCenter();
+    //  justify-content: flex-start;
+    //}
+
+    .catalog__detailsBox2 {
+      @include flexCenter();
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 20px;
+      padding: 20px;
+      color: #6F6E6E;
+      @include fontStyle1(400, 14px);
+
+      a {
+        color: #6F6E6E;
+      }
+    }
+
+    & > :first-child {
+      color: #000;
+      font-weight: 600;
+    }
+
+    & > :first-child::after {
+      content: url("../img/filter_icon2.svg");
+      margin-left: 15px;
+    }
+
+    .catalog__detailsBox {
+      #filterButton {
+        color: $exclusiveColor;
+        font-weight: 600;
+      }
+
+      background-color: #FFF;
+      box-shadow: 6px 4px 35px 0 rgba(0, 0, 0, 0.21);
+      padding: 20px;
+      width: 360px;
+      top: -16px;
+      margin-top: 5px;
+
+      details[open] summary {
+        color: $exclusiveColor;
+      }
+    }
+  }
+
+  &__sectionFilterCenterSide {
+
+  }
+
+  &__sectionFilterRightSide {
+    width: 110px;
+  }
+
+  &__menuFilter {
+    position: absolute;
+    z-index: 4;
+    @include flexCenter();
+    flex-direction: column;
+    align-items: self-start;
+    gap: 20px;
+
+    details {
+      width: 100%;
+    }
+  }
+
+  &__menuFilter > :first-child svg {
+    margin-left: 15px;
+
+    path {
+      fill: $exclusiveColor;
+    }
+  }
+
+  .filter {
+    &__menuSize {
+      width: 70px;
+    }
+
+    &__menuTrending {
+      width: 130px;
+    }
+
+    &__menuPrice {
+      width: 100px;
+      input {
+        width: 40px;
+      }
+    }
+  }
+
+  &__pages {
+    margin-top: 48px;
+    margin-bottom: 96px;
+  }
+
+  &__topLevel {
+    border-left: 5px solid $exclusiveColor;
+    padding: 10px;
+    border-bottom: 1px solid #EBEBEB;
+    width: 100%;
+  }
+}
+
+.pagination {
+  &__leftButton, &__rightButton {
+    cursor: pointer;
+  }
+
+  margin-left: auto;
+  margin-right: auto;
+  height: 44px;
+  border: 1px solid rgb(235, 235, 235);
+  @include flexCenter();
+  width: 240px;
+  gap: 15px;
+  @include fontStyle1(400, 16px);
+  color: #C4C4C4;
+
+  a {
+    color: #C4C4C4;
+  }
+
+  &__active {
+    color: $exclusiveColor !important;
+  }
+}
+
+@media (max-width: 769px) {
+  .catalog {
+
+    &__sectionFilter {
+      height: 80px;
+    }
+
+    &__sectionFilterRightSide {
+      display: none;
+    }
+  }
+}
+
+@media (max-width: 420px) {
+  .catalog {
+
+    &__sectionFilterLeftSide {
+
+      & > :first-child {
+        content: url("../img/filterIcon3.svg");
+      }
+
+      & > :first-child::after {
+        display: none;
+      }
+    }
+
+    &__sectionFilterCenterSide {
+      font-size: 12px;
+    }
+  }
+}
+
+@media (max-width: 375px) {
+  .catalog {
+    .sectionFilter {
+      font-size: 12px;
+
+      &__item summary {
+        gap: 5px;
+      }
+    }
+  }
+}

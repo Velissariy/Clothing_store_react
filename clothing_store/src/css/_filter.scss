@@ -1,0 +1,40 @@
+@import "vars";
+@import "mixins";
+
+.filter {
+  font-size: 14px;
+  color: rgb(111, 110, 110);
+  @include flexCenter();
+  justify-content: space-evenly;
+  gap: 25px;
+
+  &__item summary::after {
+    content: url("../img/filter_icon.svg");
+  }
+
+  &__item summary {
+    @include flexCenter();
+    gap: 15px;
+  }
+
+  &__detailsBox {
+    background-color: #FFF;
+    box-shadow: 6px 4px 35px 0 rgba(0, 0, 0, 0.21);
+    padding: 10px;
+    left: -10px;
+    margin-top: 5px;
+
+    @include flexCenter();
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    z-index: 3;
+
+    position: absolute;
+  }
+
+  details {
+    position: relative;
+  }
+}
+

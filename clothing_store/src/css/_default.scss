@@ -1,0 +1,60 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+}
+
+body {
+  background: #FFF;
+  color: #000;
+  scroll-behavior: smooth;
+}
+
+html, body {
+  overflow-x: hidden;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+.hidden {
+  display: none !important;
+}
+
+@import "vars";
+@import "mixins";
+
+.container {
+  max-width: $containerWidth !important;
+  margin: 0 auto;
+}
+
+.bigContainer {
+  max-width: $siteWidth;
+  margin: 0 auto;
+}
+
+.shoppingCartContainer {
+  &__title {
+    text-align: center;
+    @include fontStyle1(400, 24px);
+    margin-top: 60px;
+  }
+}
+
+@media (max-width: 1172px) {
+  .container {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+}
+
+@media (max-width: 570px) {
+  .container {
+    padding-left:8px;
+    padding-right:8px;
+  }
+}

@@ -1,0 +1,44 @@
+@import "mixins";
+
+.advantages {
+  background-color: #222224;
+  padding-top: 104px;
+  padding-bottom: 104px;
+
+  &__items {
+    @include flexCenter();
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    gap: 30px;
+  }
+
+  &__item {
+    max-width: 360px;
+    color: #F8F8F8;
+    @include flexCenter();
+    flex-direction: column;
+
+    h2 {
+      margin-top: 28px;
+      margin-bottom: 16px;
+      @include fontStyle1(400, 20px);
+    }
+
+    p {
+      text-align: center;
+      @include fontStyle1(300, 14px);
+    }
+  }
+}
+
+@media (max-width: 770px) {
+  .advantages {
+    padding-top: 64px;
+    padding-bottom: 64px;
+
+    &__items {
+      flex-direction: column;
+    }
+  }
+}

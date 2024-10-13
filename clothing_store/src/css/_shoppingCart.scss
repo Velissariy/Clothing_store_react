@@ -1,0 +1,335 @@
+@import "vars";
+@import "mixins";
+
+.shoppingCart {
+  @include flexCenter();
+  @include fontStyle1(400, 22px);
+  margin-top: 50px;
+  margin-bottom: 100px;
+  justify-content: space-between;
+  align-items: flex-start;
+
+  &__leftSide {
+    @include flexCenter();
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  &__rightSide {
+    @include flexCenter();
+    flex-direction: column;
+    align-items: flex-start;
+    width: 360px;
+  }
+
+  &__shippingAdress {
+    @include flexCenter();
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 20px;
+    width: 100%;
+
+    form {
+      @include flexCenter();
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 18px;
+
+      width: 100%;
+
+      h1 {
+        font-size: 16px;
+        margin: 0;
+        padding: 0;
+      }
+
+      label {
+        width: 100%;
+      }
+
+      input {
+        font-size: 13px;
+        color: #222222;
+        padding: 15px;
+        width: 100%;
+        border: 1px solid #A4A4A4;
+      }
+
+      input:focus {
+        outline: none;
+      }
+
+      input::placeholder {
+        color: #B1B1B1;
+      }
+    }
+  }
+
+  &__total {
+    margin-top: 50px;
+  }
+
+  .total {
+    @include flexCenter();
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-end;
+    width: 100%;
+    color: #4A4A4A;
+    background-color: #F5F3F3;
+    padding: 40px;
+
+    &__subtotal {
+      font-size: 11px;
+    }
+
+    &__grandtotal {
+      font-size: 16px;
+      margin-top: 15px;
+    }
+
+    &__subPrice {
+      margin-left: 20px;
+    }
+
+    &__grandPrice {
+      color: $exclusiveColor;
+      font-weight: 600;
+      margin-left: 20px;
+    }
+
+    &__button {
+      width: 100%;
+      padding: 20px;
+      margin-top: 20px;
+
+      color: $exclusiveColor;
+      border-color: $exclusiveColor;
+    }
+
+    &__line {
+      height: 1px;
+      width: 280px;
+      background-color: #E2E2E2;
+      margin-top: 25px;
+    }
+  }
+
+  .shoppingItem {
+    width: 652px;
+    position: relative;
+    height: 306px;
+    min-width: 340px;
+
+    &__rightSideContent {
+      max-width: 200px;
+      margin-top: 20px;
+      color: #656565;
+
+      h1 {
+        font-size: 24px;
+        margin-bottom: 40px;
+        color: #222222;
+      }
+
+      p {
+        margin: 5px 0;
+        font-size: 22px;
+      }
+
+      label {
+        @include flexCenter();
+        justify-content: flex-start;
+      }
+
+      input:focus {
+        outline: none;
+      }
+    }
+
+    &__price {
+      color: $exclusiveColor;
+    }
+
+    &__color {
+      color: #6F6E6E;
+    }
+
+    &__size {
+      color: #6F6E6E;
+    }
+
+    &__quantitySelect{
+      width: 50px;
+      text-align: center;
+      margin-left: 10px;
+      border: 1px solid rgb(234, 234, 234);
+      font-size: 16px;
+    }
+
+    &__colorSelect {
+      width: 100px;
+      text-align: center;
+      margin-left: 10px;
+      border: 1px solid rgb(234, 234, 234);
+      font-size: 16px;
+    }
+
+    &__sizeSelect {
+      width: 70px;
+      text-align: center;
+      margin-left: 10px;
+      border: 1px solid rgb(234, 234, 234);
+      font-size: 16px;
+    }
+
+    &__wrap {
+      box-shadow: 17px 19px 24px 0 rgba(0, 0, 0, 0.13);
+      @include flexCenter();
+      justify-content: flex-start;
+      align-items: flex-start;
+      gap: 20px;
+      height: 100%;
+
+      a {
+        height: 100%;
+
+        img {
+          max-height: 100%;
+        }
+      }
+    }
+
+    &__crossButton {
+      position: absolute;
+      top: 25px;
+      right: 20px;
+      cursor: pointer;
+      content: url("../img/cartCrossButton.svg");
+    }
+  }
+
+  &__buttons {
+    padding-top: 50px;
+    @include flexCenter();
+    width: 100%;
+    justify-content: space-between;
+    gap: 5px;
+  }
+
+  &__button {
+    padding: 15px;
+    background-color: #FFF;
+    border: 1px solid #A4A4A4;
+    color: #000;
+    cursor: pointer;
+    transition: background-color 0.5s ease;
+  }
+
+  &__button:hover {
+    background-color: $exclusiveColor;
+    border-color: $exclusiveColor;
+    color: #FFF;
+    transition: background-color 0.5s ease;
+  }
+
+  &__button_leftSife {
+    width: 235px;
+  }
+
+  &__button_address {
+    font-size: 11px;
+    color: #4A4A4A;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+}
+
+@media (max-width: 1060px) {
+  .shoppingCart {
+    flex-direction: column;
+    width: 100%;
+    gap: 40px;
+
+    &__leftSide {
+      width: 100%;
+    }
+
+    .shoppingItem {
+      width: 100%;
+    }
+
+    &__rightSide {
+      width: 100%;
+      flex-direction: row;
+      gap: 10px;
+    }
+
+    &__shippingAdress {
+      flex-shrink: 0;
+      width: 360px;
+    }
+
+    &__buttons {
+      max-width: 500px;
+    }
+  }
+}
+
+@media (max-width: 770px) {
+  .shoppingCart {
+
+    &__shippingAdress {
+      width: 100%;
+    }
+
+    &__rightSide {
+      width: 100%;
+      flex-direction: column;
+    }
+  }
+}
+
+@media (max-width: 570px) {
+  .shoppingCart {
+    margin-top: 50px;
+
+    .shoppingItem {
+      height: 188px;
+
+      &__rightSideContent {
+        max-width: 150px;
+
+        h1 {
+          font-size: 16px;
+          margin-bottom: 20px;
+        }
+
+        p {
+          margin: 3px 0;
+          font-size: 14px;
+        }
+      }
+
+      &__crossButton {
+        top: 15px;
+        right: 10px;
+        content: url("../img/cartCrossButtonSmall.svg");
+      }
+
+      &__wrap {
+        box-shadow: 8px 10px 15px 0 rgba(0, 0, 0, 0.13);
+      }
+    }
+
+    &__button_leftSife {
+      font-size: 12px;
+      width: 175px;
+      padding: 10px 5px;
+    }
+
+    &__buttons {
+      padding-top: 10px;
+    }
+  }
+}

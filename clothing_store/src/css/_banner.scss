@@ -1,0 +1,98 @@
+@import "vars";
+@import "mixins";
+
+.banner {
+  background-color: $bannerBackgroundColor;
+
+  .bigContainer {
+    @include flexCenter();
+    flex-direction: row;
+    flex-wrap: nowrap;
+    margin: 0 auto;
+    gap: 0;
+    position: relative;
+  }
+
+  &__rightSide {
+    min-width: 800px;
+    padding-left: 60px;
+  }
+
+  &__texts {
+    color: #222;
+    @include fontStyle1(900, 48px);
+    border-left: 12px solid $exclusiveColor;
+    padding-left: 16px;
+  }
+
+  &__text1 {
+    color: #222;
+    @include fontStyle1(700, 32px);
+  }
+
+  &__text2 {
+    color: $exclusiveColor;
+    @include fontStyle1(700, 32px);
+  }
+}
+
+@media (max-width: 1145px) and (min-width: 715px) {
+  .banner {
+    .bigCcontainer {
+      justify-content: center;
+    }
+
+    &__leftSide {
+      height: 386px;
+    }
+
+    &__rightSide {
+      min-width: 386px;
+      padding-left: 39px;
+    }
+
+    &__texts {
+      font-size: 44px;
+    }
+
+    &__text1 {
+      font-size: 24px;
+    }
+
+    &__text2 {
+      font-size: 24px;
+    }
+  }
+}
+
+@media (max-width: 714px) {
+  .banner {
+    .biGcontainer {
+      justify-content: center;
+      min-height: 364px;
+    }
+
+    &__leftSide {
+      display: none;
+    }
+
+    &__rightSide {
+      min-width: auto;
+      padding: 0;
+      height: 386px;
+      @include flexCenter();
+    }
+
+    &__texts {
+      font-size: 38px;
+    }
+
+    &__text1 {
+      font-size: 20px;
+    }
+
+    &__text2 {
+      font-size: 20px;
+    }
+  }
+}

@@ -1,0 +1,78 @@
+@import "vars";
+@import "mixins";
+
+.navigation {
+  background-color: #222;
+  margin: 0 auto;
+
+  .container {
+    @include flexCenter();
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 0;
+    width: auto;
+    position: relative;
+  }
+
+  &__leftSide {
+    @include flexCenter();
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 41px;
+  }
+
+  &__rightSide {
+    @include flexCenter();
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 41px;
+  }
+
+  &__button {
+    background-color: #222;
+    border: none;
+    cursor: pointer;
+  }
+
+  .buttonBasket {
+    position: relative;
+  }
+
+  .basketCounter {
+    position: absolute;
+    top: -6px;
+    right: -8px;
+    background-color: $exclusiveColor;
+    border-radius: 50px;
+    min-width: 19px;
+    min-height: 19px;
+    color: #FFF;
+    @include fontStyle1(400, 12px);
+    line-height: normal;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+@media (max-width: 1213px) {
+  .navigation {
+    .container {
+      margin-left: 32px;
+      margin-right: 41px;
+    }
+  }
+}
+
+@media (max-width: 375px) {
+  .navigation {
+    .buttonProfile, .buttonBasket, .basketCounter {
+      display: none;
+    }
+  }
+}
