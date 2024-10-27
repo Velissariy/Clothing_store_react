@@ -5,6 +5,7 @@ import {fetchBrandsItems} from '../../redux/brandSlice';
 import {fetchDesignersItems} from '../../redux/designersSlice';
 import {useDispatch, useSelector} from "react-redux";
 import {setBrand, setCategory, setDesigner, setType} from "../../redux/catalogFilterSlice";
+import {useApi} from "../../contexts/apiContext";
 
 const CatalogFilterMenu = ({isFilterMenuOpen, setIsFilterMenuOpen}) => {
   const menuRef = useRef(null);
@@ -20,12 +21,14 @@ const CatalogFilterMenu = ({isFilterMenuOpen, setIsFilterMenuOpen}) => {
     }
   };
 
+  const apiUrl = useApi();
+
   useEffect(() => {
     document.addEventListener('click', handleClickOutside);
 
-    dispatch(fetchCategoriesItems('https://lepihov.by/api-fashion-shop/categories'));
-    dispatch(fetchBrandsItems(`https://lepihov.by/api-fashion-shop/brands`));
-    dispatch(fetchDesignersItems(`https://lepihov.by/api-fashion-shop/designers`));
+    dispatch(fetchCategoriesItems(`${apiUrl}/categories`));
+    dispatch(fetchBrandsItems(`${apiUrl}/brands`));
+    dispatch(fetchDesignersItems(`${apiUrl}/designers`));
 
     return () => {
       document.removeEventListener('click', handleClickOutside);
@@ -37,7 +40,7 @@ const CatalogFilterMenu = ({isFilterMenuOpen, setIsFilterMenuOpen}) => {
     dispatch(setBrand(''));
     dispatch(setDesigner(''));
     dispatch(setType(''))
-    // setIsFilterMenuOpen(false);
+    setIsFilterMenuOpen(false);
   }
 
   const handleSetBrand = (brand) => {
@@ -45,15 +48,15 @@ const CatalogFilterMenu = ({isFilterMenuOpen, setIsFilterMenuOpen}) => {
     dispatch(setDesigner(''));
     dispatch(setCategory(''));
     dispatch(setType(''))
-    // setIsFilterMenuOpen(false);
+    setIsFilterMenuOpen(false);
   }
 
   const handleSetDesigner = (designer) => {
     dispatch(setDesigner(designer));
     dispatch(setBrand(''));
-    dispatch(setDesigner(''));
+    dispatch(setCategory(''));
     dispatch(setType(''))
-    // setIsFilterMenuOpen(false);
+    setIsFilterMenuOpen(false);
   }
 
   return (

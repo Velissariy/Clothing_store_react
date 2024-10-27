@@ -1,8 +1,8 @@
 import React, {useEffect} from 'react';
 import Banner from "../components/Banner";
 import Advantages from "../components/Advantages";
-import Sections from "../components/Sections";
-import Fetured from "../components/Fetured";
+import Sections from "../components/CatalogSections";
+import Fetured from "../components/CatalogFetured";
 import {setBrand, setCategory, setDesigner, setType} from "../redux/catalogFilterSlice";
 import {setCurrentPage} from "../redux/catalogSlice";
 import {useDispatch} from "react-redux";

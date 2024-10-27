@@ -43,7 +43,7 @@ const CartItem = ({item}) => {
   return (
     <div className="shoppingCart__item shoppingItem">
       <div className="shoppingItem__wrap">
-        <NavLink to={`/catalog/${item.id}`}>
+        <NavLink to={`${process.env.PUBLIC_URL}/catalog/${item.id}`}>
           {item.photos && item.photos.length > 0 && (
             <img src={item.photos[0]} alt=""/>
           )}
@@ -95,7 +95,7 @@ const CartItem = ({item}) => {
           </div>
         </div>
       </div>
-      <img onClick={() => removeCartItem(item)} src="/img/cartCrossButton.svg" className="shoppingItem__crossButton"
+      <img onClick={() => removeCartItem(item)} src={`${process.env.PUBLIC_URL}/img/cartCrossButton.svg`} className="shoppingItem__crossButton"
            alt=""/>
     </div>
   );

@@ -31,6 +31,9 @@ const productSlice = createSlice({
       state.product.selectedSize = action.payload.selectedSize;
       state.product.selectedQuantity = action.payload.selectedQuantity;
     },
+    clearProduct: (state, action) => {
+      state.product = null;
+    }
   },
   extraReducers: (builder) => {
     builder
@@ -54,5 +57,5 @@ const productSlice = createSlice({
   },
 });
 
-export const {updateSelectedProductData} = productSlice.actions;
+export const {clearProduct, updateSelectedProductData} = productSlice.actions;
 export default productSlice.reducer;

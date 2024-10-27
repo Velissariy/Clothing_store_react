@@ -187,7 +187,7 @@ img {
 .mainMenu {
   position: absolute;
   top: 74px;
-  right: -232px;
+  right: -50px;
   max-width: 232px;
   background-color: #FFF;
   font-family: Lato, sans-serif;
@@ -390,7 +390,7 @@ img {
       font-weight: 300;
       font-size: 14px;
       margin: 16px 0;
-      min-height: 30px; }
+      min-height: 60px; }
     .catalogItems .catalogItem__price {
       color: #F16D7F;
       font-family: Lato, sans-serif;

@@ -4,6 +4,8 @@ import {fetchCatalogItems} from "../../redux/catalogSlice";
 import CatalogItem from "../CatalogItem";
 import CatalogPagination from "../CatalogPagination";
 import {setCurrentPage} from '../../redux/catalogSlice'
+import {useApi} from "../../contexts/apiContext";
+import CatalogItemSkeleton from "../CatalogItemSkeleton";
 
 const Catalog = () => {
   const dispatch = useDispatch();
@@ -56,24 +58,37 @@ const Catalog = () => {
     return params.toString();
   };
 
+  const apiUrl = useApi();
+
   useEffect(() => {
     const queryParams = generateQueryParams();
-    dispatch(fetchCatalogItems(`https://lepihov.by/api-fashion-shop/catalog?${queryParams}`));
+    dispatch(fetchCatalogItems(`${apiUrl}/catalog?${queryParams}`));
   }, [sizes, trendingNow, minPrice, maxPrice, currentPage, category, brand, designer, type]);
+
+  const handleScrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  };
 
   const handleChangePage = (page) => {
     dispatch(setCurrentPage(page));
+    handleScrollToTop();
   }
 
-  if (loading) return <p>Loading...</p>;
   if (error) return <p>Error: {error}</p>;
 
   return (
     <>
       <div className="catalogItems">
-        {items.map((item) => (
-          <CatalogItem key={item.id} item={item}/>
-        ))}
+        {loading
+          ? Array.from({length: 9}).map((_, index) => (
+            <CatalogItemSkeleton key={index}/>
+          ))
+          : items.map((item) => (
+            <CatalogItem key={item.id} item={item}/>
+          ))}
       </div>
       {totalPages > 0 && (
         <CatalogPagination

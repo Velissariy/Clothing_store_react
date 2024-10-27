@@ -23,14 +23,14 @@ const CatalogPagination = ({totalPages, currentPage, handleChangePage}) => {
     <div className="catalog__pages pagination">
       <img
         className="pagination__leftButton"
-        src="/img/catalogPaginationRight.svg"
+        src={`${process.env.PUBLIC_URL}/img/catalogPaginationRight.svg`}
         alt="Previous page"
         onClick={() => handleChangePage(currentPage > 1 ? currentPage - 1 : currentPage)}
       />
       {renderPageLinks()}
       <img
         className="pagination__rightButton"
-        src="/img/catalogPaginationLeft.svg"
+        src={`${process.env.PUBLIC_URL}/img/catalogPaginationLeft.svg`}
         alt="Next page"
         onClick={() => handleChangePage(currentPage < totalPages ? currentPage + 1 : currentPage)}
       />

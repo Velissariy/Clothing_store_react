@@ -23,11 +23,11 @@ const CatalogItem = ({item}) => {
         {item.photos.length > 0 ? (
           <img src={item.photos[0]} alt="Featured item"/>
         ) : (
-          <img src="/img/defaultCatalogImage.png" alt="No available"/>
+          <img src={`${process.env.PUBLIC_URL}/img/defaultCatalogImage.png`} alt="No available"/>
         )}
         <div className="catalogItem__fill">
           <div onClick={() => toggleCartItem(item)} className="catalogItem__button">
-            <img src="/img/basket.svg" alt="Add to cart"/>
+            <img src={`${process.env.PUBLIC_URL}/img/basket.svg`} alt="Add to cart"/>
             <p>{isInCart ? "Remove" : "Add to Cart"}</p>
           </div>
         </div>
